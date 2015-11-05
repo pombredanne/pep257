@@ -10,41 +10,22 @@ custom checks can be easily added, for example to cover
 NumPy `docstring conventions
 <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_.
 
-Installation
------------------------------------------------------------
+**pep257** supports Python 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, pypy and pypy3.
 
-Use `pip <http://pip-installer.org>`_ or easy_install::
+Quick Start
+-----------
 
-    pip install pep257
-
-Alternatively, you can use ``pep257.py`` source file
-directly--it is self-contained.
-
-**pep257** is tested with Python 2.6, 2.7, 3.2, 3.3
-
-Example
------------------------------------------------------------
+Install
+^^^^^^^
 
 .. code::
 
-    $ pep257 --help
-    Usage: pep257 [options] [<file|dir>...]
+    pip install pep257
 
-    Options:
-      --version             show program's version number and exit
-      -h, --help            show this help message and exit
-      -e, --explain         show explanation of each error
-      -s, --source          show source for each error
-      --ignore=<codes>      ignore a list comma-separated error codes, for
-                            example: --ignore=D101,D202
-      --match=<pattern>     check only files that exactly match <pattern> regular
-                            expression; default is --match='(?!test_).*\.py' which
-                            matches files that don't start with 'test_' but end
-                            with '.py'
-      --match-dir=<pattern>
-                            search only dirs that exactly match <pattern> regular
-                            expression; default is --match-dir='[^\.].*', which
-                            matches all dirs that don't start with a dot
+Run
+^^^
+
+.. code::
 
     $ pep257 test.py
     test.py:18 in private nested class `meta`:
@@ -53,68 +34,19 @@ Example
             D102: Docstring missing
     ...
 
-    $ pep257 test.py --explain
-    test.py:18 in private nested class `meta`:
-            D101: Docstring missing
 
-            All modules should normally have docstrings.  [...] all functions and
-            classes exported by a module should also have docstrings. Public
-            methods (including the __init__ constructor) should also have
-            docstrings.
+Links
+-----
 
-            Note: Public (exported) definitions are either those with names listed
-                  in __all__ variable (if present), or those that do not start
-                  with a single underscore.
-    ...
+.. image:: https://travis-ci.org/GreenSteam/pep257.svg?branch=master
+    :target: https://travis-ci.org/GreenSteam/pep257
 
-    $ pep257 test.py --source
-    test.py:15 in public class `class_`:
-            D101: Docstring missing
+.. image:: https://readthedocs.org/projects/pep257/badge/?version=latest
+    :target: https://readthedocs.org/projects/pep257/?badge=latest
+    :alt: Documentation Status
 
-        15: class class_:
-        16:
-    ...
+* `Read the full documentation here <http://pep257.readthedocs.org>`_.
 
-Error codes
------------------------------------------------------------
+* `Fork pep257 on GitHub <http://github.com/GreenSteam/pep257>`_.
 
-All **pep257** errors have unique codes. All codes start with a capital D and
-are grouped as follows:
-
-+--------------+--------------------------------------------------------------+
-| **Missing docstrings**                                                      |
-+--------------+--------------------------------------------------------------+
-| D10{0,1,2,3} | Public {module,class,method,function} missing.               |
-+--------------+--------------------------------------------------------------+
-| **Whitespace issues**                                                       |
-+--------------+--------------------------------------------------------------+
-| D200         | One-line docstrings should fit on one line with quotes.      |
-+--------------+--------------------------------------------------------------+
-| D20{1,2}     | No blank lines allowed {before,after} docstring.             |
-+--------------+--------------------------------------------------------------+
-| D20{3,4}     | 1 blank required {before,after} class docstring.             |
-+--------------+--------------------------------------------------------------+
-| D205         | Blank line required between one-line summary and description.|
-+--------------+--------------------------------------------------------------+
-| D206         | Docstring should be indented with spaces, not tabs.          |
-+--------------+--------------------------------------------------------------+
-| D20{7,8}     | Docstring {under,over}-indented.                             |
-+--------------+--------------------------------------------------------------+
-| D209         | Put multi-line docstring closing quotes on separate line.    |
-+--------------+--------------------------------------------------------------+
-| **Quotes issues**                                                           |
-+--------------+--------------------------------------------------------------+
-| D300         | Use """triple double quotes""".                              |
-+--------------+--------------------------------------------------------------+
-| D301         | Use r""" if any backslashes in your docstring.               |
-+--------------+--------------------------------------------------------------+
-| D302         | Use u""" for Unicode docstrings (Python 2 only).             |
-+--------------+--------------------------------------------------------------+
-| **Docstring content issues**                                                |
-+--------------+--------------------------------------------------------------+
-| D400         | First line should end with a period.                         |
-+--------------+--------------------------------------------------------------+
-| D401         | First line should be in imperative mood.                     |
-+--------------+--------------------------------------------------------------+
-| D402         | First line should not be the function's "signature".         |
-+--------------+--------------------------------------------------------------+
+* `PyPI project page <https://pypi.python.org/pypi/pep257>`_.

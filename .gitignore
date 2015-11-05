@@ -38,5 +38,14 @@ docs/_*
 .pydevproject
 .settings
 
+# PyCharm files
+.idea
+
 # virtualenv
 venv/
+
+# generated rst
+docs/snippets/error_code_table.rst
+
+# PyCharm files
+.idea
